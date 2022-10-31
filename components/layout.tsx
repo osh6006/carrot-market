@@ -2,12 +2,14 @@ import React from "react";
 import Link from "next/link";
 import { cls } from "../libs/utils";
 import { useRouter } from "next/router";
+
 interface LayoutProps {
   title?: string;
   canGoBack?: boolean;
   hasTabBar?: boolean;
   children: React.ReactNode;
 }
+
 export default function Layout({
   title,
   canGoBack,
@@ -43,11 +45,11 @@ export default function Layout({
           <span className={cls(canGoBack ? "mx-auto" : "", "")}>{title}</span>
         ) : null}
       </div>
-      <div className={cls("pt-20", hasTabBar ? "pb-24" : "")}>{children}</div>
+      <div className={cls("pt-12", hasTabBar ? "pb-24" : "")}>{children}</div>
       {hasTabBar ? (
         <nav className="bg-white max-w-xl text-gray-700 border-t fixed bottom-0 w-full px-10 pb-5 pt-3 flex justify-between text-xs">
           <Link href="/">
-            <span
+            <a
               className={cls(
                 "flex flex-col items-center space-y-2 ",
                 router.pathname === "/"
@@ -70,10 +72,10 @@ export default function Layout({
                 ></path>
               </svg>
               <span>홈</span>
-            </span>
+            </a>
           </Link>
           <Link href="/community">
-            <span
+            <a
               className={cls(
                 "flex flex-col items-center space-y-2 ",
                 router.pathname === "/community"
@@ -96,10 +98,10 @@ export default function Layout({
                 ></path>
               </svg>
               <span>동네생활</span>
-            </span>
+            </a>
           </Link>
           <Link href="/chats">
-            <span
+            <a
               className={cls(
                 "flex flex-col items-center space-y-2 ",
                 router.pathname === "/chats"
@@ -122,10 +124,10 @@ export default function Layout({
                 ></path>
               </svg>
               <span>채팅</span>
-            </span>
+            </a>
           </Link>
           <Link href="/live">
-            <span
+            <a
               className={cls(
                 "flex flex-col items-center space-y-2 ",
                 router.pathname === "/live"
@@ -148,10 +150,10 @@ export default function Layout({
                 ></path>
               </svg>
               <span>라이브</span>
-            </span>
+            </a>
           </Link>
           <Link href="/profile">
-            <span
+            <a
               className={cls(
                 "flex flex-col items-center space-y-2 ",
                 router.pathname === "/profile"
@@ -174,7 +176,7 @@ export default function Layout({
                 ></path>
               </svg>
               <span>나의 캐럿</span>
-            </span>
+            </a>
           </Link>
         </nav>
       ) : null}

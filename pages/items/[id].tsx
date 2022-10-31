@@ -68,4 +68,5 @@ const ItemDetail: NextPage = () => {
     </Layout>
   );
 };
+
 export default ItemDetail;
